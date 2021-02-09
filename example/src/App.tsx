@@ -1,5 +1,5 @@
 import React from 'react'
-import { Plugins } from 'react-pluggable'
+import { Plugins } from 'react-plugins'
 
 const App = () => {
   return (

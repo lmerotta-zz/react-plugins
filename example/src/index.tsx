@@ -3,7 +3,7 @@ import './index.css';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { PluginStore, PluginStoreProvider } from 'react-pluggable';
+import { PluginStore, PluginStoreProvider } from 'react-plugins';
 
 PluginStore.registerPlugin(
   'body',

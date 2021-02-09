@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PluginStore } from 'react-pluggable';
+import { PluginStore } from 'react-plugins';
 import MyPluginWithProps from './MyPluginWithProps';
 
 const CHILD_PLUGIN_NAME = 'CHILD_PLUGIN';

@@ -1,13 +1,13 @@
-# react-pluggable
+# react-plugins
 
 > Use your react component&#x27;s as plugins!
 
-[![NPM](https://img.shields.io/npm/v/react-pluggable.svg)](https://www.npmjs.com/package/react-pluggable) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-plugins.svg)](https://www.npmjs.com/package/react-plugins) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save react-pluggable
+npm install --save react-plugins
 ```
 
 ## Usage
@@ -15,8 +15,8 @@ npm install --save react-pluggable
 ```tsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-pluggable'
-import 'react-pluggable/dist/index.css'
+import MyComponent from 'react-plugins'
+import 'react-plugins/dist/index.css'
 
 class Example extends Component {
   render() {

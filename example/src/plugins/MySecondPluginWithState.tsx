@@ -1,5 +1,5 @@
 import React from 'react';
-import { PluginStore } from 'react-pluggable';
+import { PluginStore } from 'react-plugins';
 
 const MyPluginWithState = () => {
   return (
