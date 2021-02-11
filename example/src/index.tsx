@@ -3,29 +3,7 @@ import './index.css';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { PluginStore, PluginStoreProvider } from 'react-plugins';
-
-PluginStore.registerPlugin(
-  'body',
-  React.lazy(() => import('./plugins/MySecondPluginWithState')),
-  'MySecondPluginWithState',
-  105
-);
-
-PluginStore.registerPlugin(
-  'body',
-  React.lazy(() => import('./plugins/MyPluginWithState')),
-  'MyPluginWithState',
-  100
-);
-
-// Import the same plugin in two different sections !
-PluginStore.registerPlugin(
-  'footer',
-  React.lazy(() => import('./plugins/MyPluginWithState')),
-  'MyPluginWithState',
-  101
-);
+import { PluginStoreProvider } from 'react-plugins';
 
 ReactDOM.render(
   <Suspense fallback='Loading...'>
