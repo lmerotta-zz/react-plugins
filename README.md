@@ -49,6 +49,11 @@ PluginStore.registerPlugin('sidebar', AdminWidget, 'admin-widget');
 const Sidebar = () => <Plugins section='sidebar' />;
 ```
 
+## Demo
+
+A basic demo showcasing the main features of this plugin is available at https://lmerotta.github.io/react-plugins/
+Code is located in the `example` folder
+
 ## Install
 
 ```bash
