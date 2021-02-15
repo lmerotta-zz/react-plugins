@@ -63,4 +63,4 @@ export class PluginStore {
   }
 }
 
-export default new PluginStore();
+export default PluginStore;
