@@ -271,10 +271,19 @@ Used to render plugins registered in a particular section
 **section** (string)
 The section to look for plugins. This component will render any plugin found in the given section, sorted by priority in ascending order
 
+### usePlugins
+
+Retrieve all plugins ready to render. returns an array of JSX elements that can be mapped and rendered
+
+#### arguments
+
+**section** (string)
+The section to look for plugins. Will return all the components from this section, ready to render
+
 ## Roadmap
 
 - [x] Remove global PluginStore and make PluginStoreProvider accept a `pluginStore` as parameter
-- [ ] `usePlugins` hook to retrieve plugins and leave rendering to the user
+- [x] `usePlugins` hook to retrieve plugins and leave rendering to the user
 
 ## License
 
