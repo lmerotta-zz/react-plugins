@@ -255,7 +255,7 @@ The section to look for plugins. This component will render any plugin found in 
 
 ## Roadmap
 
-- [ ] Remove global PluginStore and make PluginStoreProvider accept a `pluginStore` as parameter
+- [x] Remove global PluginStore and make PluginStoreProvider accept a `pluginStore` as parameter
 - [ ] `usePlugins` hook to retrieve plugins and leave rendering to the user
 
 ## License

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { PluginStore } from 'react-plugins';
+import PluginStore from '../../../pluginStore';
 import BillingWidget from './BillingWidget';
 
 const BillingSection = () => {
