@@ -2,19 +2,24 @@ import React, { useMemo } from 'react';
 import PluginStore from '../utils/store';
 
 type ProviderContextType = {
-  store: typeof PluginStore;
+  store: PluginStore;
 };
 
 export const ProviderContext = React.createContext<ProviderContextType>(
   {} as ProviderContextType
 );
 
-const PluginStoreProvider: React.FC = ({ children }) => {
+type PluginStoreProviderProps = ProviderContextType;
+
+const PluginStoreProvider: React.FC<PluginStoreProviderProps> = ({
+  children,
+  store
+}) => {
   const contextValues = useMemo(
     () => ({
-      store: PluginStore
+      store
     }),
-    [PluginStore]
+    [store]
   );
 
   return (

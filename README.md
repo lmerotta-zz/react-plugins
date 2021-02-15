@@ -68,6 +68,17 @@ npm install --save react-plugins
 
 ## Example Usage
 
+Create a pluginStore
+
+```ts
+// src/pluginStore.ts
+import { PluginStore } from 'react-plugins';
+
+const store = new PluginStore();
+
+export default store;
+```
+
 Define a component as you'd normally do
 
 ```tsx
@@ -81,15 +92,16 @@ Register your component as a plugin, and wrap your application with the PluginSt
 
 ```tsx
 // src/index.tsx
-import { PluginStore, PluginStoreProvider } from 'react-plugins';
+import { PluginStoreProvider } from 'react-plugins';
 import ReactDOM from 'react-dom';
 import App from './App';
 import MyComponent from './MyComponent';
+import store from './pluginStore';
 
-PluginStore.registerPlugin('body', MyComponent, 'MyComponent', 10);
+store.registerPlugin('body', MyComponent, 'MyComponent', 10);
 
 ReactDOM.render(
-  <PluginStoreProvider>
+  <PluginStoreProvider store={store}>
     <App />
   </PluginStoreProvider>,
   document.getElementById('root')
@@ -122,11 +134,12 @@ Instead of importing your component and registering it as is, you can use `React
 ```tsx
 // src/index.tsx
 import { lazy, Suspense } from 'react';
-import { PluginStore, PluginStoreProvider } from 'react-plugins';
+import { PluginStoreProvider } from 'react-plugins';
 import ReactDOM from 'react-dom';
 import App from './App';
+import store from './pluginStore';
 
-PluginStore.registerPlugin(
+store.registerPlugin(
   'body',
   lazy(() => import('./MyComponent')),
   'MyComponent',
@@ -163,7 +176,7 @@ const App = () => (
 react-plugins supports registering plugins that are components with props, simply by passing the JSX instead of the component declaration:
 
 ```tsx
-PluginStore.registerPlugin(
+store.registerPlugin(
   'body',
   <MyComponent prop='value' secondProp={10} />,
   'MyComponent',
@@ -176,7 +189,7 @@ PluginStore.registerPlugin(
 When you register a plugin, you can update it whenever you want. This allows you for example to update it's props. Simply passe then new component to `registerPlugin` by specifying the same section and name as the previous one:
 
 ```tsx
-PluginStore.registerPlugin(
+store.registerPlugin(
   'body',
   <MyComponent prop='value' secondProp={10} />,
   'MyComponent',
@@ -185,7 +198,7 @@ PluginStore.registerPlugin(
 
 // later...
 
-PluginStore.registerPlugin(
+store.registerPlugin(
   'body',
   <MyComponent prop='secondValue' secondProp={125} />,
   'MyComponent',
@@ -203,7 +216,7 @@ const MyPluginHandler = () => {
 
   // register or update the plugin whenever pluginProp changes
   useEffect(() => {
-    PluginStore.registerPlugin(
+    store.registerPlugin(
       'body',
       <MyComponent prop={pluginProp} />,
       'MyComponent',
@@ -244,6 +257,11 @@ Removes a plugin from the given section, thus unmounting it if rendered anywhere
 
 Used to make your application aware of the plugins registered
 
+#### Props
+
+**store** (PluginStore)
+The store that will be used to retrieve plugins from
+
 ### Plugins
 
 Used to render plugins registered in a particular section
@@ -255,7 +273,7 @@ The section to look for plugins. This component will render any plugin found in 
 
 ## Roadmap
 
-- [ ] Remove global PluginStore and make PluginStoreProvider accept a `pluginStore` as parameter
+- [x] Remove global PluginStore and make PluginStoreProvider accept a `pluginStore` as parameter
 - [ ] `usePlugins` hook to retrieve plugins and leave rendering to the user
 
 ## License

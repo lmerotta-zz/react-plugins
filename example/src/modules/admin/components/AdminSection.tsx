@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { PluginStore } from 'react-plugins';
 import AdminWidget from './AdminWidget';
+import PluginStore from '../../../pluginStore';
 
 const AdminSection = () => {
   const [count, setCount] = useState(0);
