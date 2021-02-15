@@ -1,6 +1,6 @@
 {
   "name": "react-plugins",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Use your react component&#x27;s as plugins!",
   "author": "lmerotta",
   "license": "MIT",
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
+    "@testing-library/react-hooks": "^5.0.3",
     "@testing-library/user-event": "^7.2.1",
     "@types/jest": "^25.1.4",
     "@types/node": "^12.12.38",
