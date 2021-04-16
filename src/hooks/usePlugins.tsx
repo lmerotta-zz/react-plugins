@@ -1,25 +1,12 @@
-import React, { useContext, useEffect, useMemo, useReducer } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { ProviderContext } from '../components/PluginStoreProvider';
 
 const usePlugins = (section: string): Array<JSX.Element> => {
   const { store } = useContext(ProviderContext);
-  const [, forceRender] = useReducer((s) => s + 1, 0);
 
-  useEffect(() => {
-    const unsub = store.subscribe(() => {
-      forceRender();
-    });
-
-    return (): void => {
-      unsub();
-    };
-  });
-
-  const plugins = store.getPluginsForSection(section);
-
-  return useMemo(
+  const getPluginElements = useCallback(
     () =>
-      plugins.map((component) => {
+      store.getPluginsForSection(section).map((component) => {
         if (React.isValidElement(component)) {
           return (component as unknown) as JSX.Element;
         } else {
@@ -27,8 +14,22 @@ const usePlugins = (section: string): Array<JSX.Element> => {
           return <Component />;
         }
       }),
-    [plugins]
+    [store, section]
   );
+
+  const [plugins, setPlugins] = useState(getPluginElements());
+
+  useEffect(() => {
+    const unsub = store.subscribe(() => {
+      setPlugins(getPluginElements());
+    });
+
+    return (): void => {
+      unsub();
+    };
+  }, [store]);
+
+  return plugins;
 };
 
 export default usePlugins;
