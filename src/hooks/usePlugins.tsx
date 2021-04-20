@@ -13,7 +13,7 @@ const usePlugins = (section: string): Array<JSX.Element> => {
     return (): void => {
       unsub();
     };
-  });
+  }, [store]);
 
   const plugins = store.getPluginsForSection(section);
 
